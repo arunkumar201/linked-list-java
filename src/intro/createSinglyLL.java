@@ -3,7 +3,7 @@ package src.intro;
 
 public class createSinglyLL {
 
-    static void display(Node head) {
+    public static void display(Node head) {
         Node current = head;
         while (current != null) {
             System.out.print(current.data + " -> ");
@@ -59,8 +59,7 @@ public class createSinglyLL {
         head.next = second;
         Node third = new Node(30);
         second.next = third;
-        Node fourth = new Node(40);
-        third.next = fourth;
+        third.next = new Node(40);
         display(head);
         System.out.println();
 //        inserting at the first position
