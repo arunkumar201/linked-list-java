@@ -40,6 +40,7 @@ public class createSinglyLL {
         head = head.next;
         return head;
     }
+
     static Node deleteAtLast(Node head) {
         if (head == null) {
             return null;
@@ -50,6 +51,32 @@ public class createSinglyLL {
         }
         current.next = null;
         return head;
+    }
+
+    static Node reverseList(Node head) {
+        if (head == null) {
+            return null;
+        }
+        Node current = head;
+        Node prev = null;
+        while (current != null) {
+            Node next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        return prev;
+    }
+
+    //using recursion to reverse the list
+    static Node reverseListRec(Node head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        Node newHead = reverseListRec(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
     }
 
 
@@ -68,14 +95,13 @@ public class createSinglyLL {
         System.out.println();
 //        inserting at the last
         head = insertAtLast(head, 61);
-        display(head);
         System.out.println();
 //        delete at the first node
         head = deleteAtFirst(head);
-        display(head);
-        System.out.println();
 //        delete the last node
         head = deleteAtLast(head);
         display(head);
+        System.out.println("\n After Reversing");
+       display(reverseListRec(head));
     }
 }

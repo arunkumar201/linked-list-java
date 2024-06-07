@@ -27,7 +27,6 @@ public class lc_2816 {
             int currValue = temp.data * 2 + carry;
             carry = currValue / 10;
             currValue = currValue % 10;
-//            System.out.println("Carry " + carry + " currValue " + currValue);
             src.next = new ListNode(currValue);
             src = (ListNode) src.next;
             temp = (ListNode) temp.next;
